@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230f7b6c%27/%3E%3Cpath d=%27M12 46 26 30l8 8 18-22%27 stroke=%27white%27 stroke-width=%277%27 fill=%27none%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
-<title>Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk（非官方繁中譯文）</title>
-<meta name="description" content="YouTube 影片《Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk》之全文繁體中文字幕整理（AI 產製，未人工校稿）。">
+<title>奧特曼 × Magouyrk Oracle AI World 對談全文譯本（非官方）</title>
+<meta name="description" content="〈Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk〉（CNBC Television，2026-10-27 上傳）全文繁體中文譯本，採台灣用語；非官方翻譯（AI 模型翻譯與審校）。">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:title" content="Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk（非官方繁中譯文）">
-<meta property="og:description" content="YouTube 影片《Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk》之全文繁體中文字幕整理（AI 產製，未人工校稿）。">
+<meta property="og:title" content="奧特曼 × Magouyrk Oracle AI World 對談全文譯本（非官方）">
+<meta property="og:description" content="〈Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk〉（CNBC Television，2026-10-27 上傳）全文繁體中文譯本，採台灣用語；非官方翻譯（AI 模型翻譯與審校）。">
 <meta property="og:image" content="https://lushinshang.github.io/sam-altman-oracle-magouyrk/images/og-hero.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk（非官方繁中譯文）">
-<meta name="twitter:description" content="YouTube 影片《Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk》之全文繁體中文字幕整理（AI 產製，未人工校稿）。">
+<meta name="twitter:title" content="奧特曼 × Magouyrk Oracle AI World 對談全文譯本（非官方）">
+<meta name="twitter:description" content="〈Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk〉（CNBC Television，2026-10-27 上傳）全文繁體中文譯本，採台灣用語；非官方翻譯（AI 模型翻譯與審校）。">
 <meta name="twitter:image" content="https://lushinshang.github.io/sam-altman-oracle-magouyrk/images/og-hero.jpg">
 <meta property="og:url" content="https://lushinshang.github.io/sam-altman-oracle-magouyrk/translation-zh.html">
 <style>
@@ -124,45 +124,92 @@ footer{max-width:720px;margin:64px auto 0;padding-top:16px;border-top:1px solid 
   h2{font-size:1.35rem}
   section.summary-card{padding:4px 16px 8px}
 }
+
+/* 版面強化 r1：閱讀進度、章節進場、導覽當前章、狀態標籤、回到頂端 */
+.read-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--accent);z-index:60;pointer-events:none}
+nav.toc a[aria-current="true"]{background:var(--accent);color:#fff}
+@media (prefers-color-scheme: dark){nav.toc a[aria-current="true"]{color:#10211d}}
+.js-reveal .rv{opacity:0;transition:opacity .6s ease,transform .6s ease}
+.js-reveal .rv:not(figure){transform:translateY(14px)}
+.js-reveal .rv.rv-in{opacity:1}
+.js-reveal .rv.rv-in:not(figure){transform:none}
+table td.st{white-space:nowrap}
+.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:13.5px;line-height:1.6;white-space:normal;border:1px solid var(--line);background:var(--note);color:var(--ink)}
+.badge.ok{background:#e1f3ee;border-color:#9fd3c6;color:#0b5c51}
+.badge.part{background:#fdf0d8;border-color:#e3c27d;color:#6b4a0a}
+.badge.warn{background:#fbe6e3;border-color:#e2a8a0;color:#7a2a20}
+@media (prefers-color-scheme: dark){
+ .badge.ok{background:#17332e;border-color:#2c6b5f;color:#8fe0cf}
+ .badge.part{background:#3a3020;border-color:#6d5a2e;color:#f0d28f}
+ .badge.warn{background:#3b2220;border-color:#7a4540;color:#f2b3ab}}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:color-mix(in srgb,var(--note) 70%,transparent)}
+.to-top{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:55}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* r2：觸控目標、回頂端鈕、手機圖提示、首圖視差、章節標題裝飾條 */
+article a[href*="youtu"]{position:relative}
+article a[href*="youtu"]::after{content:"";position:absolute;inset:-12px -8px}
+@media (max-width:640px){
+  .to-top{width:36px;height:36px;right:10px;bottom:10px;font-size:15px;opacity:0}
+  .to-top.show{opacity:.85}
+  figure.section-figure picture{position:relative}
+  figure.section-figure picture::after{content:"點圖放大";position:absolute;right:8px;bottom:8px;font-size:12px;line-height:1;padding:5px 8px;border-radius:999px;background:color-mix(in srgb,var(--ink) 78%,transparent);color:var(--bg);pointer-events:none}
+}
+.hero-figure picture{display:block;will-change:transform}
+.js-reveal h2.rv{background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 100%/0 3px;padding-bottom:6px}
+.js-reveal h2.rv.rv-in{background-size:72px 3px;transition:background-size .8s ease .2s,opacity .6s ease,transform .6s ease}
+
+/* r3：trace 圖逐列顯現（steps 動畫，尊重 reduced-motion：JS 在該情況下不加 .rv） */
+.js-reveal figure.rv-trace{clip-path:inset(0 0 100% 0)}
+.js-reveal figure.rv-trace.rv-in{clip-path:inset(0 0 0 0);transition:clip-path 1.6s steps(8,end),opacity .6s ease}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
-<nav class="toc" aria-label="章節導覽"><ul><li><a href="#sec-1" title="全文">全文</a></li></ul></nav>
+<nav class="toc" aria-label="章節導覽"><ul><li><a href="#sec-1" title="章節 1：開場串場與上台（00:00）">1·00:00</a></li><li><a href="#sec-2" title="章節 2：GPT-6 與變化速度（00:25）">2·00:25</a></li><li><a href="#sec-3" title="章節 3：Oracle 內部導入（01:50）">3·01:50</a></li><li><a href="#sec-4" title="章節 4：不寫程式的人也在做軟體（02:54）">4·02:54</a></li><li><a href="#sec-5" title="章節 5：資安：AI 找到的漏洞（06:30）">5·06:30</a></li><li><a href="#sec-6" title="章節 6：晶片與新科學（08:41）">6·08:41</a></li></ul></nav>
 <div class="page">
 <header class="hero">
-<p class="eyebrow">全文譯稿（非官方）</p>
-<h1>Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk（非官方繁中譯文）</h1>
-<p class="byline">原片：CNBC Television　整理：2026-10-31</p>
+<p class="eyebrow">全文譯本（非官方）</p>
+<h1>奧特曼 × Magouyrk Oracle AI World 對談全文譯本（非官方）</h1>
+<p class="lede">CNBC Television，2026-10-27 上傳（Oracle AI World 主題演講節錄）</p>
+<p class="byline">原影片：CNBC Television，2026-10-27　譯本整理：2026-11-01</p>
 </header>
 <main id="main"><article>
-<aside class="note"><p>這是〈Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk〉的繁體中文譯文，依影片字幕翻譯，不是官方翻譯。時間戳為影片時間。</p></aside>
-<ul><li>影片：<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA" target="_blank" rel="noopener noreferrer">Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk</a>（CNBC Television）</li></ul>
+<aside class="note"><p>本譯文由 AI 模型依 YouTube 自動產生的英文字幕翻譯並審校，不是人類翻譯，也沒有經過人工校稿或逐句對照原音；字幕沒有說話者標記，本頁不標說話者。影片無章節，以下分段是本文依話題所分，不是原影片章節。原影片版權屬原頻道，僅供閱讀與研究，若有出入以影片為準。</p></aside>
+<p>原影片：<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA" target="_blank" rel="noopener noreferrer">Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk</a>。這是 CNBC 上傳的 Oracle AI World 2026 主題演講節錄，開頭約 11 秒為台上串場，接著約 12 秒為音樂。對應的<a href="index.html">深度導讀</a>與<a href="player.html">雙語同步播放器</a>另附。</p>
 <hr>
-<h2 id="sec-1">全文</h2>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=0s" target="_blank" rel="noopener noreferrer">00:00</a> 接下來，我想稍微多討論一下我們實際上是如何與 OpenAI 合作打造出這些令人驚豔的新技術。為此，請大家幫我一起歡迎山姆・奧特曼上台。［音樂］［音樂］［音樂］ 山姆，感謝你的光臨。感謝你們邀請我。嗯，你們做了非常多事情。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=30s" target="_blank" rel="noopener noreferrer">00:30</a> 而且創新的步伐顯然非常驚人。從我的角度來看，模型變化的速度似乎只會持續加速。你們在 8 月推出了 GPT-6。目前進展如何？今年對我來說最大的驚喜之一，就是這種變化的速度。我是說，我們已經談論這件事發展有多快談了 4 年了。我們推出 ChatGPT 差不多是 4 年前。4 年前，我們的模型連小學數學都解不出來，而現在它們正在攻克我們已知最難的未解數學難題。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=64s" target="_blank" rel="noopener noreferrer">01:04</a> 但過去大約 6 個月，感覺即便在那個時間跨度下，也是一個極度加速的版本。而 GPT-6 是那樣的時刻之一，我認為模型在那個時候一口氣跨出了一大步，無論是在發現新知識的能力上，處理非常困難的事情上，還有人們與模型協作的能力，並以前所未有的速度完成實質性的大量工作。所以，GPT-6 的採用率是我們迄今所有新模型中採用率最強勁的，遙遙領先。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=97s" target="_blank" rel="noopener noreferrer">01:37</a> 看著大家在寫程式、各種類型的企業軟體上運用它，資安、科學等一個又一個產業，看到這些真的很令人驚嘆。對，顯然在 Oracle 內部，我們也是 OpenAI 的大客戶。我們決定向所有人全面部署 ChatGPT 桌面版。但同樣讓我驚訝的是，如果你看看像是 Codex，對吧？</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=127s" target="_blank" rel="noopener noreferrer">02:07</a> 現在誰能成為開發者的融合，我們目前絕大多數的程式碼、超過 70% 的軟體都是由 AI 編寫的，而且這還在加速。沒錯。但除此之外，我和許多人聊過，他們在幾年前完全無法想像自己能成為一名開發者，如今卻在外面打造全新的應用程式，他們能夠真正解決問題並進行創作所帶來的喜悅是無比巨大的。這也是我們專注於打造 App Composer 的很大一部分原因，因為我們有</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=160s" target="_blank" rel="noopener noreferrer">02:40</a> 這麼多人正在打造這些新的應用程式，我們需要一種安全且受控的方式來實際部署它們。你如何看待 AI 在改變人們思考實際解決問題的方式，以及誰能為自己做到這件事？是啊，你提到 Oracle 已經向 Oracle 的所有人推行這項工具，看到這一點真的很棒。你們一直是這方面最積極的採用者之一。隨著我們大力推進企業領域，出現了許多驚喜。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=191s" target="_blank" rel="noopener noreferrer">03:11</a> 但其中之一是觀察到當一家公司真正進行這種全面性的推廣時，那些原本不認為自己是在廣義上創造軟體（也就是讓電腦做他們想做的事）的人，這種風氣在整家公司內部傳播得多麼迅速。所以你會看到這些人，他們可能不會將其描述為寫程式。事實上，我有點覺得他們不會這麼說，但重點是現在當他們需要某個東西時，他們就會做一個應用程式來解決。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=223s" target="_blank" rel="noopener noreferrer">03:43</a> 他們與自己的電腦互動的方式，以及為其他人的互動創造產出物的方式（無論他們的職能是什麼），真的發生了非常大的變化。而且到了這個階段，這已經變得非常直接了，但大家紛紛表示，我在 2026 年底的生產力是 2025 年初的兩倍，而且我更喜歡我的工作，因為我做那些苦差事稍微變少了。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=254s" target="_blank" rel="noopener noreferrer">04:14</a> 對，我認為正在發生的部分事情是，我曾經自認為是一名軟體開發者，雖然現在感覺已經過去太久了。有趣的是，當初讓我為之著迷的創造性本質之間，似乎存在著巨大的鴻溝，對吧？我記得小時候我會想，我要學習如何去……我第一次開始寫程式時，就像是我能有一個想法，而且我能把它變成現實。但那個創造性的層面，與我到底該如何向這台電腦下指令去做我想做的事，是非常分開的。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=286s" target="_blank" rel="noopener noreferrer">04:46</a> 我覺得現在正在發生的事情是，透過讓 AI 將這項活動中的手動部分自動化，它向那些出於某種原因天生不一定傾向這方面的人解鎖了那種創造力，對吧？我非常同意這一點。它為那些可能沒那麼有天份或傾向的人解鎖了潛力，而對於更有傾向的人來說，它只是給了你多得多的能力。我現在坐在電腦前使用最新工具的體驗與主觀感受，就像是我在電腦內部管理著一座工廠。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=325s" target="_blank" rel="noopener noreferrer">05:25</a> 而且我可以把我不想做的事情自動化。我不會覺得自己在跌跌撞撞、等待或搞不清楚某些事情。我覺得自己可以相當持續地從一個想法跳到另一個想法，而不會被卡住。即使有些事情我只有一個模糊的概念，但不太確定該怎麼做，平時我可能就會放棄，而不去嘗試，因為啟動門檻實在太高了，現在我願意去探索這些不太可能但有時會有高回報的創意方向。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=357s" target="_blank" rel="noopener noreferrer">05:57</a> 這感覺就像，我的意思是，這有點像我們大家在科幻作品中被承諾過的酷炫事物，我們實際上只是在跟電腦聊聊我們的想法，一切就這麼發生了，而且我們成為了背後的創造性力量。我記得我發現寫程式時的那種快樂，而且我已經能夠幫助幾位年輕人體驗到這一點。我現在在 30 歲的人身上看到了那種快樂，他們從零開始建立完整的網站來實現自己的目標，而他們以前根本不認為這是可能的。你得繼續說。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=387s" target="_blank" rel="noopener noreferrer">06:27</a> 我們有時間限制，山姆。好，我想談談資安。它正在非常快速地變化。你們打造的模型顯然既能發現漏洞，又能幫助我們修復它們。這也是為什麼我們攜手合作並打造了 AI Security Mesh 的很大原因，因為我們看到了客戶的需求，他們能夠存取這些模型，但是，該如何使用它？如何把它對準目標？接著該如何驗證這些問題？然後又該如何去部署修復？</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=418s" target="_blank" rel="noopener noreferrer">06:58</a> 我們大家在資安領域都還有很多事情要做。企業應該如何思考採用 AI 來保護自己及其資料？如果我現在只能向一家公司推薦一件在極短期內利用 AI 做的事，甚至比用 Codex 變得超級多產更重要的是，真正理解來自 AI 的資安威脅態勢並對此進行防禦緩解。我明白我這麼說大概有點討人厭，而且有點像是：</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=451s" target="_blank" rel="noopener noreferrer">07:31</a> 你們製造了問題，現在卻告訴我們必須花錢或努力研究解決方案。我認為 Rob 做得很好。抱歉打斷一下。AI 並沒有製造問題。AI 並沒有製造這些錯誤。AI 正在幫助我們發現過去 50 年來所產生的所有資安問題。我很高興我們現在能夠利用 AI 來發現它們，而不是等待某個不知名的駭客來讓我們知道。非常強烈同意。我認為度過這個難關的唯一方法就是去找出所有這些問題並修復它們。事實上，我認為我們將需要新的修復方式。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=481s" target="_blank" rel="noopener noreferrer">08:01</a> 在我們大家都依賴的整個供應鏈中，要逐一修補每一個錯誤也許太難了。而且我認為我們必須關注不斷監控流量且不讓這些漏洞被利用的新型服務。但我發現自己對這些 AI 系統發現的漏洞數量之多感到震驚，以及要走在這些問題前面所需付出的代價，需要付出艱鉅無比的努力。是啊。我想我同意你的看法。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=512s" target="_blank" rel="noopener noreferrer">08:32</a> 我認為那實際上也是 AI 會為我們提供幫助的地方。我認為我們將能夠……我們無法手動完成。我們將會實現自動化，並且我們將使用新技術來幫助我們解決這個問題。好的，最後一個問題。我們在一年前根本不可能進行這場對話，對吧？技術不存在，經驗也不存在。所以正如我們所討論的，一切都在變快。當你思考軟體和硬體接下來會迎來什麼時，你最興奮的是什麼，以及你認為每個人應該考慮什麼？這裡有許多事情，但其中一件我忍不住要談的是，AI 現在有多麼幫助我們發現新科學、發明新技術。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=551s" target="_blank" rel="noopener noreferrer">09:11</a> 實際上在做這種創新並創造更好事物的工作。我們在之前提到的數學問題上看到了巨大的範例。我們在許多科學領域看到了這一點。我們在我們面臨的一些最有價值的技術問題中看到了這一點。AI 非常擅長晶片設計。事實上，我們製造了一款名為 Jalapeño 的晶片，我們正在 OCI 中部署它，對此我們感到非常興奮。而我們製造這款我認為在推論方面是世界上最好的 AI 晶片，其速度如果沒有 AI 來完成大量這類工作，是根本無法想像的。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=587s" target="_blank" rel="noopener noreferrer">09:47</a> 所以我們在短短幾年內看到 AI 從 聊天機器人發展到寫程式的代理（coding agent），再到能夠直接將 AI 轉化為創新。像是將 AI 算力轉化為創新。無論是製造晶片還是治癒疾病，這意味著我們都將獲得好得多的東西、更高品質的服務以及更低成本的服務。而我認為這將促成的事情，即使 我們在理智上知道並接受它正在發生，但在情感上我們還沒有真正感受到，而這些模型突然之間就已經出現在這裡了。</p>
-<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=622s" target="_blank" rel="noopener noreferrer">10:22</a> 不，我完全同意。我認為變化的速度只會持續增加。山姆，我想謝謝你的到來。感謝與你以及 OpenAI 每位同仁的絕佳合作關係。這一切棒極了，我也對接下來的發展感到非常期待。非常感謝 感謝你們邀請我。</p>
+<h2 id="sec-1">章節 1：開場串場與上台（00:00）</h2>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=0s" target="_blank" rel="noopener noreferrer">00:00</a> 接下來，我想有點像是多聊聊我們實際上是如何與 OpenAI 合作，打造出這些令人難以置信的新技術。為此，請大家幫我一起歡迎山姆・奧特曼上台。［音樂］［音樂］［音樂］ 山姆，感謝你的光臨。感謝你們邀請我。</p>
+<h2 id="sec-2">章節 2：GPT-6 與變化速度（00:25）</h2>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=25s" target="_blank" rel="noopener noreferrer">00:25</a> 嗯，你們做了非常多事情。而且創新的步伐顯然非常驚人。我是說，我可以告訴你，從我的角度來看，模型變化的速度似乎只會持續加速。你們在 8 月推出了 GPT-6。目前進展如何？今年對我來說最大的驚喜之一，就是這種變化的速度。我是說，我們已經談論這件事發展有多快談了 4 年了。我們推出 ChatGPT 差不多是 4 年前。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=57s" target="_blank" rel="noopener noreferrer">00:57</a> 4 年前，我們的模型連小學數學都解不出來，而現在它們正在攻克我們所知最難的、尚未被證明的數學問題。但過去大概 6 個月，感覺即使放在那段時間尺度裡看，也像是非常加速的版本。而 GPT-6 是那樣的時刻之一，我認為模型在那個時候一口氣跨出了一大步，無論是在發現新知識的能力上，處理非常困難的事情上，也在於人們與模型協作、並以他們以前從未能達到的速度完成相當大量實質工作的能力。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=92s" target="_blank" rel="noopener noreferrer">01:32</a> 所以，GPT-6 的採用是我們所有新模型中迄今最強勁的，遙遙領先。看著大家在寫程式、你想得到的各種企業軟體上運用它，資安、科學，一個產業接著一個產業，看到這些真的相當令人驚嘆。</p>
+<h2 id="sec-3">章節 3：Oracle 內部導入（01:50）</h2>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=110s" target="_blank" rel="noopener noreferrer">01:50</a> 對，我可以告訴你，在 Oracle 內部，我們顯然是 OpenAI 的重度使用者。我們決定把 ChatGPT 桌面版推行給所有人。但同樣讓我驚訝的是，比方說你看 Codex，對吧？還有現在誰算是開發者這件事的融合，我們絕大多數的程式碼，如今超過 70% 的軟體都是由 AI 寫的，而且這還在加速。沒錯。但除此之外，我去交談過的許多人，幾年前他們根本無法想像自己會成為開發者，</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=148s" target="_blank" rel="noopener noreferrer">02:28</a> 卻在外面創作全新的應用程式，而他們因為真的能解決自己的問題、動手創作所感到的喜悅，令人難以置信。這也是我們專注於打造 App Composer 的很大一部分原因，因為我們有 這麼多人正在打造這些新的應用程式，我們需要一種安全且受控的方式來實際部署它們。你如何看待 AI 在改變人們思考實際解決問題的方式，以及誰能為自己做到這件事？</p>
+<h2 id="sec-4">章節 4：不寫程式的人也在做軟體（02:54）</h2>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=174s" target="_blank" rel="noopener noreferrer">02:54</a> 是啊，你提到 Oracle 已經在公司內向所有人推行這個，看到這樣真的很棒。你們一直是這方面最積極的採用者之一。隨著我們大力推進企業市場，出現了不少意外。但其中之一，是看到當一家公司真的全面推行時，那些不認為自己在創造軟體的人（廣義來說，就是讓電腦做他們想做的事），</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=206s" target="_blank" rel="noopener noreferrer">03:26</a> 這種情況在整家公司裡擴散得有多快。所以你會看到這些人，他們可能不會將其描述為寫程式。事實上，我有點認為他們不會這麼說，但事實是，現在當他們需要某個東西時，就自己做一個應用程式來解決。他們與自己電腦互動的方式，以及為其他人創造產出物讓對方互動的方式（無論職能是什麼），真的改變了相當多。而且到了這個階段，這已經變得非常直接了，</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=237s" target="_blank" rel="noopener noreferrer">03:57</a> 但常聽到大家說，我在 2026 年底的生產力是 2025 年初的兩倍，而且我更享受我的工作，因為我做的苦差事有點變少了。對，我認為正在發生的部分事情是，我認為自己曾經算是個軟體開發者，雖然現在感覺已經是很久以前的事了。有趣的是，感覺上，讓我當初著迷的那種創造性的部分，似乎有一道很大的區隔，對吧？</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=272s" target="_blank" rel="noopener noreferrer">04:32</a> 我記得小時候我會想，我要學習如何去……我第一次開始寫程式時，就像是我能有一個想法，而且我能把它變成現實。但那個創造性的層面，與我到底該如何向這台電腦下指令去做我想做的事，是非常分開的。我覺得現在正在發生的事情是，透過讓 AI 把這項活動中偏手動的部分自動化，它向那些出於某種原因天生不一定傾向這方面的人解鎖了那種創造力，對吧？</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=302s" target="_blank" rel="noopener noreferrer">05:02</a> 其中最……我強烈同意這一點。它為可能沒那麼傾向這方面的人解鎖了這些，而對本來就更傾向的人，它只是給你多得多的能力。我現在坐在電腦前使用最新工具的主觀體驗，就像是我在自己的電腦裡管理一座工廠。而且我可以把我不想做的事情自動化。我不會覺得自己在跌跌撞撞、等待或搞不清楚某些事情。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=335s" target="_blank" rel="noopener noreferrer">05:35</a> 我覺得我可以相當持續地從一個想法換到另一個想法，而不會被卡住。即使有些事情我只有一個模糊的感覺，不太確定該怎麼做，平時我大概就會放棄，而不去嘗試，因為啟動門檻會實在太高，現在我願意去探索這些不太可能、但有時回報很大的創意方向。這感覺就像，我的意思是，這有點像我們大家在科幻作品中被承諾過的酷炫事物，我們實際上只是在跟電腦聊聊我們的想法，一切就這麼發生了，而且我們成為了背後的創造性力量。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=369s" target="_blank" rel="noopener noreferrer">06:09</a> 我是說，那是一樣的，我記得我發現寫程式時的喜悅，而且我曾幫助過幾位比較年輕的人體驗這種喜悅。我現在在 30 歲的人身上看到了那種快樂，他們從零開始建立完整的網站來實現自己的目標，而他們以前根本不認為這是可能的。你得繼續說。好吧，聽著，我們有時間限制，山姆。</p>
+<h2 id="sec-5">章節 5：資安：AI 找到的漏洞（06:30）</h2>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=390s" target="_blank" rel="noopener noreferrer">06:30</a> 好，我想談談資安。它正在非常快速地變化。你們打造的模型顯然既能發現漏洞，又能幫助我們修復它們。這也是為什麼我們攜手合作並打造了 AI Security Mesh 的很大原因，因為我們看到了客戶的需求，他們能夠存取這些模型，但是，該如何使用它？如何把它對準目標？接著該如何驗證這些問題？然後又該如何去部署它們？我們大家在資安領域都還有很多事情要做。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=420s" target="_blank" rel="noopener noreferrer">07:00</a> 企業應該如何思考採用 AI 來保護自己及其資料？如果我現在只能向一家公司推薦一件用 AI 做的事，而且是在極短期內，那甚至比用 Codex 變得超級有生產力更重要，就是真正理解來自 AI 的資安威脅態勢，並對此做防範。我明白我這麼說大概有點煩人，而且有點像是我在說：</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=451s" target="_blank" rel="noopener noreferrer">07:31</a> 你們製造了問題，現在卻告訴我們必須花錢或投入心力去做解決方案。在這方面，我認為 Rob 做得很好。抱歉打斷一下。AI 並沒有製造問題。AI 並沒有製造這些程式錯誤。AI 正在幫助我們找出過去 50 年來我們自己累積下來的所有資安問題。我很高興我們現在能夠利用 AI 來發現它們，而不是等待某個不知名的駭客來讓我們知道。超級強烈同意。我認為度過這個難關的唯一方法就是去找出所有這些問題並修復它們。事實上，我認為我們將需要新的修復方式。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=481s" target="_blank" rel="noopener noreferrer">08:01</a> 在我們大家都依賴的整個供應鏈中，要逐一修補每一個錯誤也許太難了。而且我認為我們必須去看新型的服務，持續監控流量，不讓這些東西被利用。但我發現自己對這些 AI 系統發現的漏洞數量之多感到震驚，以及要走在這件事前面需要付出什麼，那是令人難以置信、艱鉅無比的努力。是啊。我想我同意你的看法。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=512s" target="_blank" rel="noopener noreferrer">08:32</a> 我認為那實際上也是 AI 會為我們提供幫助的地方。我認為我們將能夠……我們無法手動完成。我們將會實現自動化，並且我們將使用新技術來幫助我們解決這個問題。</p>
+<h2 id="sec-6">章節 6：晶片與新科學（08:41）</h2>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=521s" target="_blank" rel="noopener noreferrer">08:41</a> 好的，最後一個問題。我們在一年前根本不可能進行這場對話，對吧？技術不存在，經驗也不存在。所以正如我們所討論的，一切都在變快。當你思考軟體和硬體接下來會迎來什麼時，你最興奮的是什麼，以及你認為每個人應該考慮什麼？這裡有很多事情，但其中一件我忍不住要談的是，AI 現在有多大程度在幫我們發現新科學、發明新技術。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=551s" target="_blank" rel="noopener noreferrer">09:11</a> 甚至實際投入創新、創造更好事物的工作。我們在先前提到的數學問題上看到了極為出色的例子。我們在許多科學領域看到了這一點。我們在手上一些最有價值的技術問題中也看到了這一點。AI 非常擅長晶片設計。事實上，我們做了一款叫 Jalapeño 的晶片，正在 OCI 上部署，我們對此非常興奮。我們做出了這款晶片，我認為它是世界上最好的推論用 AI 晶片，而且做出來的速度，若沒有 AI 承擔大量這類工作，是無法想像的。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=587s" target="_blank" rel="noopener noreferrer">09:47</a> 所以我們在短短幾年內看到 AI 從 聊天機器人，到寫程式的代理（coding agent），再到能夠直接將 AI 轉化為創新。也就是把 AI 運算能力轉化為創新。無論是製造晶片還是治癒疾病，這意味著我們都將獲得好得多的東西、更高品質的服務以及更低成本的服務。而我認為，這將促成的事情是，我們仍然處於即使 在理智上知道並接受它正在發生，在情感上卻還沒有真正感受到，而這些模型突然之間就出現在這裡了。</p>
+<p><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=622s" target="_blank" rel="noopener noreferrer">10:22</a> 不，我完全同意。我認為變化的速度持續在增加。山姆，我想謝謝你的到來。感謝與你以及 OpenAI 每位同仁的絕佳合作關係。這一切棒極了，我也對接下來的發展感到非常期待。非常感謝 感謝你們邀請我。</p>
 </article></main>
 <footer>
-<p>本頁為非官方繁體中文字幕整理，字幕翻譯與審校由 AI 模型完成，未經人工逐句校稿；僅供學習與研究，若有差異請以原始影片為準。</p>
+<p>本頁為非官方繁體中文翻譯，依 YouTube 自動產生的英文字幕由 AI 模型翻譯與審校，未經人工校稿，也未逐句對照原音；原影片版權屬原頻道 CNBC Television，僅供閱讀與研究。若有出入，以原影片為準。</p>
 </footer>
 </div>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="圖片放大檢視"><button type="button" aria-label="關閉放大檢視">關閉（Esc）</button><img src="" alt=""></div>
@@ -181,6 +228,52 @@ footer{max-width:720px;margin:64px auto 0;padding-top:16px;border-top:1px solid 
     if(e.key==='Escape'){close();}
     if(e.key==='Tab'){e.preventDefault();btn.focus();}
   });
+})();
+
+(function(){
+  var d=document, reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=d.createElement('div');bar.className='read-progress';bar.setAttribute('aria-hidden','true');d.body.appendChild(bar);
+  var top=d.createElement('button');top.className='to-top';top.type='button';top.setAttribute('aria-label','回到頂端');top.textContent='↑';d.body.appendChild(top);
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
+  var lastY=0;
+  function onScroll(){
+    var h=d.documentElement.scrollHeight-window.innerHeight, y=window.scrollY||0;
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    var up=y<lastY;lastY=y;top.classList.toggle('show',y>900&&(up||window.innerWidth>640));
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // 狀態欄標籤：依文字開頭分色（不改文字內容）
+  d.querySelectorAll('table').forEach(function(t){
+    var ths=[].slice.call(t.querySelectorAll('thead th'));
+    var i=ths.findIndex(function(th){return th.textContent.trim()==='狀態';});
+    if(i<0)return;
+    t.querySelectorAll('tbody tr').forEach(function(tr){
+      var td=tr.children[i];if(!td)return;
+      var tx=td.textContent.trim(), cls='';
+      if(/與書面不符|有爭議|未找到|未解|不一致|被推翻/.test(tx))cls='warn';else if(/部分確認|用詞比書面更進一步|僅台上說法|畫面所見|官方未|啟用方式已變|個人判斷|轉述|限量/.test(tx))cls='part';else if(/已確認/.test(tx))cls='ok';
+      td.innerHTML='<span class="badge '+cls+'"'+(tx.length<=8?' style="white-space:nowrap"':'')+'>'+td.innerHTML+'</span>';
+    });
+  });
+  // 導覽當前章
+  var links={};d.querySelectorAll('nav.toc a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var heads=[].slice.call(d.querySelectorAll('h2[id]')).filter(function(h){return links[h.id];});
+  function cur(){
+    var y=window.scrollY+window.innerHeight*0.35, pick=null;
+    heads.forEach(function(h){if(h.getBoundingClientRect().top+window.scrollY<=y)pick=h.id;});
+    Object.keys(links).forEach(function(k){if(k===pick){links[k].setAttribute('aria-current','true');}else{links[k].removeAttribute('aria-current');}});
+    if(pick&&links[pick]){var a=links[pick],u=a.closest('ul'),ar=a.getBoundingClientRect(),ur=u.getBoundingClientRect();u.scrollTo({left:u.scrollLeft+(ar.left-ur.left)-(ur.width-ar.width)/2,behavior:reduce?'auto':'smooth'});}
+  }
+  window.addEventListener('scroll',cur,{passive:true});cur();
+  // 章節與圖進場；JS 失效時內容照常顯示
+  if(!reduce&&'IntersectionObserver' in window){
+    d.documentElement.classList.add('js-reveal');
+    var els=d.querySelectorAll('h2, figure, .summary-card, table');
+    els.forEach(function(e){e.classList.add('rv');if(e.tagName==='FIGURE'&&e.querySelector('img[src*="fig-trace"]'))e.classList.add('rv-trace');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('rv-in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  }
+  var hp=d.querySelector('.hero-figure picture');
+  if(hp&&!reduce){window.addEventListener('scroll',function(){var y=window.scrollY;if(y<900){hp.style.transform='translateY('+Math.round(y*0.12)+'px)';}},{passive:true});}
 })();
 </script>
 </body>

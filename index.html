@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230f7b6c%27/%3E%3Cpath d=%27M12 46 26 30l8 8 18-22%27 stroke=%27white%27 stroke-width=%277%27 fill=%27none%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
-<title>Oracle AI World 對談導讀：Sam Altman 與 Clay Magouyrk 談企業 AI 的控制權與落地壓力</title>
-<meta name="description" content="依據 Oracle AI World 現場逐字稿與 Oracle/OpenAI 官方頁面整理，聚焦企業 AI 導入的實際瓶頸與可執行路徑。">
+<title>台上十分鐘，紙上四項產品：奧特曼與 Oracle 執行長 Magouyrk 的 AI World 對談</title>
+<meta name="description" content="Oracle AI World 對談導讀（CNBC 節錄）：奧特曼與 Oracle 執行長 Clay Magouyrk 談 GPT-6、Oracle 內部的 70%、資安與 Jalapeño 晶片，逐項對照 Oracle 與 OpenAI 的書面公告。">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:title" content="Oracle AI World 對談導讀：Sam Altman 與 Clay Magouyrk 談企業 AI 的控制權與落地壓力">
-<meta property="og:description" content="依據 Oracle AI World 現場逐字稿與 Oracle/OpenAI 官方頁面整理，聚焦企業 AI 導入的實際瓶頸與可執行路徑。">
+<meta property="og:title" content="台上十分鐘，紙上四項產品：奧特曼與 Oracle 執行長 Magouyrk 的 AI World 對談">
+<meta property="og:description" content="Oracle AI World 對談導讀（CNBC 節錄）：奧特曼與 Oracle 執行長 Clay Magouyrk 談 GPT-6、Oracle 內部的 70%、資安與 Jalapeño 晶片，逐項對照 Oracle 與 OpenAI 的書面公告。">
 <meta property="og:image" content="https://lushinshang.github.io/sam-altman-oracle-magouyrk/images/og-hero.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="">
+<meta property="og:image:alt" content="夜間的大型會議舞台，兩張空著的扶手椅面對深色觀眾席，舞台後方是一整面由細小光點與電路紋路組成的發光牆">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Oracle AI World 對談導讀：Sam Altman 與 Clay Magouyrk 談企業 AI 的控制權與落地壓力">
-<meta name="twitter:description" content="依據 Oracle AI World 現場逐字稿與 Oracle/OpenAI 官方頁面整理，聚焦企業 AI 導入的實際瓶頸與可執行路徑。">
+<meta name="twitter:title" content="台上十分鐘，紙上四項產品：奧特曼與 Oracle 執行長 Magouyrk 的 AI World 對談">
+<meta name="twitter:description" content="Oracle AI World 對談導讀（CNBC 節錄）：奧特曼與 Oracle 執行長 Clay Magouyrk 談 GPT-6、Oracle 內部的 70%、資安與 Jalapeño 晶片，逐項對照 Oracle 與 OpenAI 的書面公告。">
 <meta name="twitter:image" content="https://lushinshang.github.io/sam-altman-oracle-magouyrk/images/og-hero.jpg">
 <meta property="og:url" content="https://lushinshang.github.io/sam-altman-oracle-magouyrk/">
 <style>
@@ -124,51 +124,128 @@ footer{max-width:720px;margin:64px auto 0;padding-top:16px;border-top:1px solid 
   h2{font-size:1.35rem}
   section.summary-card{padding:4px 16px 8px}
 }
+
+/* 版面強化 r1：閱讀進度、章節進場、導覽當前章、狀態標籤、回到頂端 */
+.read-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--accent);z-index:60;pointer-events:none}
+nav.toc a[aria-current="true"]{background:var(--accent);color:#fff}
+@media (prefers-color-scheme: dark){nav.toc a[aria-current="true"]{color:#10211d}}
+.js-reveal .rv{opacity:0;transition:opacity .6s ease,transform .6s ease}
+.js-reveal .rv:not(figure){transform:translateY(14px)}
+.js-reveal .rv.rv-in{opacity:1}
+.js-reveal .rv.rv-in:not(figure){transform:none}
+table td.st{white-space:nowrap}
+.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:13.5px;line-height:1.6;white-space:normal;border:1px solid var(--line);background:var(--note);color:var(--ink)}
+.badge.ok{background:#e1f3ee;border-color:#9fd3c6;color:#0b5c51}
+.badge.part{background:#fdf0d8;border-color:#e3c27d;color:#6b4a0a}
+.badge.warn{background:#fbe6e3;border-color:#e2a8a0;color:#7a2a20}
+@media (prefers-color-scheme: dark){
+ .badge.ok{background:#17332e;border-color:#2c6b5f;color:#8fe0cf}
+ .badge.part{background:#3a3020;border-color:#6d5a2e;color:#f0d28f}
+ .badge.warn{background:#3b2220;border-color:#7a4540;color:#f2b3ab}}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:color-mix(in srgb,var(--note) 70%,transparent)}
+.to-top{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:55}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* r2：觸控目標、回頂端鈕、手機圖提示、首圖視差、章節標題裝飾條 */
+article a[href*="youtu"]{position:relative}
+article a[href*="youtu"]::after{content:"";position:absolute;inset:-12px -8px}
+@media (max-width:640px){
+  .to-top{width:36px;height:36px;right:10px;bottom:10px;font-size:15px;opacity:0}
+  .to-top.show{opacity:.85}
+  figure.section-figure picture{position:relative}
+  figure.section-figure picture::after{content:"點圖放大";position:absolute;right:8px;bottom:8px;font-size:12px;line-height:1;padding:5px 8px;border-radius:999px;background:color-mix(in srgb,var(--ink) 78%,transparent);color:var(--bg);pointer-events:none}
+}
+.hero-figure picture{display:block;will-change:transform}
+.js-reveal h2.rv{background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 100%/0 3px;padding-bottom:6px}
+.js-reveal h2.rv.rv-in{background-size:72px 3px;transition:background-size .8s ease .2s,opacity .6s ease,transform .6s ease}
+
+/* r3：trace 圖逐列顯現（steps 動畫，尊重 reduced-motion：JS 在該情況下不加 .rv） */
+.js-reveal figure.rv-trace{clip-path:inset(0 0 100% 0)}
+.js-reveal figure.rv-trace.rv-in{clip-path:inset(0 0 0 0);transition:clip-path 1.6s steps(8,end),opacity .6s ease}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
-<nav class="toc" aria-label="章節導覽"><ul><li><a href="#sec-1" title="先看重點">重點</a></li><li><a href="#sec-2" title="一、舞台上的關鍵訊號：能力加速，已經是共識">一</a></li><li><a href="#sec-3" title="二、企業的真正卡點，不在 demo，而在控制面">二</a></li><li><a href="#sec-4" title="三、把官方材料疊在一起看：分工其實很明確">三</a></li><li><a href="#sec-5" title="四、對團隊的實際建議：先解決三個會拖慢落地的點">四</a></li><li><a href="#sec-6" title="製作說明">製作說明</a></li><li><a href="#sec-7" title="來源清單">來源</a></li></ul></nav>
+<nav class="toc" aria-label="章節導覽"><ul><li><a href="#sec-1" title="三十秒版">三十秒</a></li><li><a href="#sec-2" title="先看重點：台上的說法，查得到什麼">重點</a></li><li><a href="#sec-3" title="這場對談談到哪四件合作">合作</a></li><li><a href="#sec-4" title="一、GPT-6：模型一口氣跨一大步">一·GPT-6</a></li><li><a href="#sec-5" title="二、Oracle 內部：70% 與 13 萬人">二·70%</a></li><li><a href="#sec-6" title="三、不寫程式的人也在做 app">三·做 app</a></li><li><a href="#sec-7" title="四、資安：如果只能做一件事">四·資安</a></li><li><a href="#sec-8" title="五、Jalapeño：「正在部署」與「計畫部署」">五·晶片</a></li><li><a href="#sec-9" title="台上沒講完的那份新聞稿">新聞稿</a></li><li><a href="#sec-10" title="讀這段影片要記得的限制">限制</a></li><li><a href="#sec-11" title="重點結論與實際啟示">結論</a></li><li><a href="#sec-12" title="製作說明：這篇導讀由 AI 模型完成">製作說明</a></li><li><a href="#sec-13" title="來源清單">來源</a></li></ul></nav>
 <div class="page">
 <header class="hero">
 <p class="eyebrow">深度導讀</p>
-<h1>Oracle AI World 對談導讀：Sam Altman 與 Clay Magouyrk 談企業 AI 的控制權與落地壓力</h1>
-<p class="lede">從 10 分鐘現場對談看懂：模型能力加速後，企業真正競爭的是整合速度、權限治理與營運系統改造</p>
+<h1>台上十分鐘，紙上四項產品：奧特曼與 Oracle 執行長 Magouyrk 的 AI World 對談</h1>
+<p class="lede">CNBC 節錄的 Oracle AI World 主題演講對談導讀：GPT-6、Oracle 內部的 70%、資安的「只做一件事」與 Jalapeño 晶片，逐項對照兩家公司的書面公告</p>
 <p class="byline">整理：2026-10-31　資料截至 2026-10-31</p>
 </header>
 <main id="main"><article>
+<figure class="hero-figure"><picture><source media="(max-width: 640px)" srcset="images/hero-9x16.webp"><img src="images/hero-16x9.webp" alt="夜間的大型會議舞台，兩張空著的扶手椅面對深色觀眾席，舞台後方是一整面由細小光點與電路紋路組成的發光牆" width="1659" height="948" loading="eager" style="--ar-d:1659/948;--ar-m:940/1672" tabindex="0" role="button" aria-label="放大圖片：夜間的大型會議舞台，兩張空著的扶手椅面對深色觀眾席，舞台後方是一整面由細小光點與電路紋路組成的發光牆"></picture><figcaption>圖說：AI 生成的概念插畫，比喻台上的對談與台後撐著它的基礎設施，不是活動現場照片。</figcaption></figure>
+<aside class="note"><p>這是一篇導讀：先給重點與查證，再逐段看台上說了什麼、哪些要對照書面公告讀。本導讀的分析與撰稿由 AI 模型完成，不是人類分析，也沒有經過人工逐句校稿，見文末〈製作說明〉。</p></aside>
+<p>這支影片是 CNBC 上傳的 10 分 36 秒節錄，取自 Oracle AI World 2026 的主題演講，不是整場演講。上台的是 OpenAI 執行長山姆・奧特曼（Sam Altman），主持對談的是 Oracle 執行長 Clay Magouyrk；Oracle 由 Magouyrk 與 Mike Sicilia 兩位執行長並列，官方頁面有時稱 CEO、有時稱 co-CEO（<a href="https://www.oracle.com/ai-world/" target="_blank" rel="noopener noreferrer">Oracle AI World</a>、<a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Investor-Day-2026-Accelerating-Value-Creation/default.aspx" target="_blank" rel="noopener noreferrer">Oracle 投資人關係</a>）。</p>
+<p>同一天，Oracle 發出新聞稿，宣布與 OpenAI 擴大合作，四項新產品把 ChatGPT 與 Codex 帶進 Oracle 的應用、資料與雲端（<a href="https://www.oracle.com/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/" target="_blank" rel="noopener noreferrer">Oracle 新聞稿</a>）。台上十分鐘只點名了其中兩項，其餘時間在談模型變快、人人都能做軟體、資安與晶片。</p>
+<p>這種場合的話要對照書面才讀得準，所以本文把台上的說法逐項對回書面公告，標出哪些找得到，哪些只是台上說法。</p>
 <section class="summary-card" aria-labelledby="sec-1">
-<h2 id="sec-1">先看重點</h2>
-<p>這段對談最不尋常的地方，不是「模型又變強了」，而是雙方都把焦點放在企業系統的改造成本：速度快只是前提，能不能把模型能力接進既有資料、權限與流程，才是成敗分水嶺。從片段裡看得到一個很務實的訊號：當 AI 走向企業核心流程，技術競爭會快速變成組織工程競爭。</p>
+<h2 id="sec-1">三十秒版</h2>
+<ul><li>這是 CNBC 節錄的主題演講對談。兩人是合作夥伴，整段幾乎沒有不同意見。</li><li><strong>台上有兩處跟書面紀錄對不上</strong>：GPT-6 的推出月份，Magouyrk 說 8 月，官方發表頁標 9 月；奧特曼說 Jalapeño 晶片「正在 OCI 上部署」，Oracle 自己的寫法是「計畫部署」，用來擴充 OpenAI 自己的推論容量。</li><li>Magouyrk 台上說 Oracle 超過 70% 的軟體由 AI 撰寫，只有這一句，沒有公布怎麼算。OpenAI 公布的是另一組數字：Oracle 有 13 萬名 ChatGPT 活躍使用者、超過 9.5 萬名 Codex 活躍使用者，並注明數字由 Oracle 提供。</li><li>最值得帶走的一句是奧特曼的建議：短期內如果只能做一件事，<strong>比用 Codex 變得超級有生產力更重要的，是理解 AI 帶來的資安威脅並做防範</strong>。</li></ul>
 </section>
-<h2 id="sec-2">一、舞台上的關鍵訊號：能力加速，已經是共識</h2>
-<p>主持人一開場就強調創新節奏仍在加快，並在 <a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=42s" target="_blank" rel="noopener noreferrer">00:42</a> 以「GPT-6 in August」作為提問背景；Sam Altman 回答時也再次指出變化速度是他最意外、且仍持續加速的部分（見約 <a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=46s" target="_blank" rel="noopener noreferrer">00:46</a> 後）。</p>
-<p>這裡真正值得注意的是：不論現場口語細節是否完整，對談主軸很清楚——模型能力的邊際改善仍在發生，因此企業端不太可能用「等技術穩定」當延後導入的理由。等待本身就是成本。</p>
-<h2 id="sec-3">二、企業的真正卡點，不在 demo，而在控制面</h2>
-<p>對談語氣雖然偏舞台式，但跟 Oracle/OpenAI 的官方訊息對照後，輪廓相當一致：企業想要的是可治理、可整合、可責任追溯的 AI 能力，而不是單點展示。</p>
-<p>換句話說，問題不是「模型夠不夠聰明」，而是：</p>
-<ul><li>哪些資料可被使用、在哪裡處理、誰能授權？</li><li>回覆如何被審計、追蹤、納入既有流程？</li><li>出錯時能不能快速切回人工作業或既有系統？</li></ul>
-<p>這些都是傳統 IT/資安/法遵邏輯，現在被迫提前跟生成式 AI 合流。這也是為什麼影片雖短，卻一直繞著企業級落地語境，而不是消費端功能比較。</p>
-<h2 id="sec-4">三、把官方材料疊在一起看：分工其實很明確</h2>
-<p>若把逐字稿與官方頁面並讀，可看到一種分工模型：</p>
-<ol class="takeaways"><li><strong>模型與代理能力</strong>：由 OpenAI 提供（含企業應用情境）。</li><li><strong>企業系統承載層</strong>：由 Oracle 的企業產品與基礎設施承接。</li><li><strong>導入目標</strong>：不是單一聊天介面，而是把 AI 接入既有商務流程。</li></ol>
-<p>這種組合的意義在於，它把「AI 專案」從實驗室題目轉成「營運系統升級」。因此採購與評估單位也會從少數創新團隊，擴大到 IT、資安、法遵、營運部門共同決策。</p>
-<h2 id="sec-5">四、對團隊的實際建議：先解決三個會拖慢落地的點</h2>
-<p>如果你正要把類似能力導入公司流程，這段對談可轉成三個優先順序：</p>
-<ol class="takeaways"><li><strong>資料與權限盤點先行</strong>：先把可用資料範圍與授權責任定義清楚，再談模型效果。</li><li><strong>把「人工接管」寫進流程</strong>：所有高風險場景都要有回退路徑，不可只靠自動化。</li><li><strong>用單一指標看導入成效</strong>：例如處理週期縮短、錯誤率下降或交付速度提升，避免只看主觀體驗。</li></ol>
-<p>很多團隊會先追求漂亮成果頁，再補治理；通常會反過來拖慢上線。這裡反而該保守一點，先把控制面做紮實。</p>
-<h2 id="sec-6">製作說明</h2>
-<ul><li>本文為 AI 產製導讀，<strong>非官方內容</strong>。</li><li>研究、翻譯、整理與撰寫由 AI 模型完成，<strong>未經人工逐句校稿</strong>。</li><li>對談逐字稿為主要文本依據；涉及產品/合作脈絡時，以官方頁面交叉對照。</li><li>若與原始影片或官方文件有差異，應以原始來源為準。</li></ul>
-<h2 id="sec-7">來源清單</h2>
-<ul class="sources"><li>YouTube：Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk（CNBC Television）  </li></ul>
-<p>https://www.youtube.com/watch?v=SwoFsYmMvyA</p>
-<ul class="sources"><li>Oracle（官方）：Oracle Reinvents Enterprise Computing for the AI Era with OpenAI（2026-10-27）  </li></ul>
-<p>https://www.oracle.com/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/</p>
-<ul class="sources"><li>OpenAI（官方）：Oracle apps in ChatGPT  </li></ul>
-<p>https://openai.com/index/oracle-apps-in-chatgpt/</p>
+<h2 id="sec-2">先看重點：台上的說法，查得到什麼</h2>
+<p>狀態欄的意思：「與書面不符」是官方日期或說法跟台上不同；「書面已確認」是官方頁面支持；「用詞比書面更進一步」是台上的動詞比書面強；「僅台上說法」是講者自述，沒有可對照的公開數字。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格（可左右捲動）"><table><thead><tr><th scope="col">台上的說法</th><th scope="col">書面紀錄</th><th scope="col">狀態</th></tr></thead><tbody><tr><td data-label="台上的說法">「你們在 8 月推出了 GPT-6」（00:42，Magouyrk）</td><td data-label="書面紀錄">官方發表頁標的是 9 月</td><td class="nw" data-label="狀態">與書面不符</td></tr><tr><td data-label="台上的說法">GPT-6 的採用是所有新模型中迄今最強勁的（01:32，奧特曼）</td><td data-label="書面紀錄">查無 OpenAI 公布的 GPT-6 專屬採用數字</td><td class="nw" data-label="狀態">僅台上說法</td></tr><tr><td data-label="台上的說法">Oracle 把 ChatGPT 桌面版推給所有人（01:57，Magouyrk）</td><td data-label="書面紀錄">OpenAI 客戶案例：13 萬 ChatGPT、9.5 萬以上 Codex 活躍使用者，數字由 Oracle 提供；案例未提桌面版全員推行</td><td class="nw" data-label="狀態">僅台上說法</td></tr><tr><td data-label="台上的說法">超過 70% 的軟體由 AI 撰寫（02:07，Magouyrk）</td><td data-label="書面紀錄">沒有 70% 這個數字；沒有公布算法</td><td class="nw" data-label="狀態">僅台上說法</td></tr><tr><td data-label="台上的說法">為了讓大家安全部署自己做的 app，所以做 App Composer（02:36，Magouyrk）</td><td data-label="書面紀錄">Oracle：App Composer 讓使用者用 Codex 建應用、由 Oracle 在 OCI 上部署與營運；截至 10 月 27 日為限量供應</td><td class="nw" data-label="狀態">書面已確認</td></tr><tr><td data-label="台上的說法">一起打造 AI Security Mesh（06:42，Magouyrk）</td><td data-label="書面紀錄">Oracle：使用 OpenAI 資安模型的託管服務，由客戶界定授權測試範圍；產品頁未寫上市日期</td><td class="nw" data-label="狀態">書面已確認</td></tr><tr><td data-label="台上的說法">Jalapeño 晶片「正在 OCI 上部署」（09:30，奧特曼）</td><td data-label="書面紀錄">OpenAI 6 月 24 日發表，預計 2026 年底前啟動初期部署；Oracle 寫的是「計畫部署」，用來擴充 OpenAI 的推論容量</td><td class="nw" data-label="狀態">用詞比書面更進一步</td></tr><tr><td data-label="台上的說法">Jalapeño 是「世界上最好的推論用 AI 晶片」（09:37，奧特曼）</td><td data-label="書面紀錄">OpenAI 公告只說早期測試每瓦效能大幅優於目前最先進水準，仍在測量最終效能</td><td class="nw" data-label="狀態">僅台上說法</td></tr></tbody></table></div>
+<h2 id="sec-3">這場對談談到哪四件合作</h2>
+<figure class="section-figure"><picture><source media="(max-width: 640px)" srcset="images/fig-collab-zh-mobile.svg"><img src="images/fig-collab-zh.svg" alt="OpenAI 與 Oracle 的合作結構圖：左欄是 OpenAI 的模型、Codex、資安模型與 Jalapeño 晶片，右欄是 Oracle 內部使用、App Composer、AI Security Mesh 與 Oracle 雲端，四條合作線由左指向右；紅字標出僅台上說法或與書面不符之處" width="1200" height="889" loading="lazy" style="--ar-d:1200/889;--ar-m:600/1784" tabindex="0" role="button" aria-label="放大圖片：OpenAI 與 Oracle 的合作結構圖：左欄是 OpenAI 的模型、Codex、資安模型與 Jalapeño 晶片，右欄是 Oracle 內部使用、App Composer、AI Security Mesh 與 Oracle 雲端，四條合作線由左指向右；紅字標出僅台上說法或與書面不符之處"></picture><figcaption>圖說：本文歸納，非講者原圖。內容限於台上談到的合作；紅字是僅台上說法或與書面紀錄不同之處，虛線箭頭是計畫中、尚未完成的事。</figcaption></figure>
+<p>圖裡四條線是模型（GPT-6）、Oracle 內部用 Codex 做 app（連到 App Composer）、資安（AI Security Mesh）和晶片（Jalapeño）。其中晶片是計畫中，資安的上市日期書面沒寫。</p>
+<h2 id="sec-4">一、GPT-6：模型一口氣跨一大步</h2>
+<p>Magouyrk 的第一個問題是：「你們在 8 月推出了 GPT-6」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=42s" target="_blank" rel="noopener noreferrer">00:42</a>），「目前進展如何？」官方發表頁標的是 9 月（<a href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener noreferrer">OpenAI</a>）。</p>
+<p>奧特曼的回答從速度講起。「今年對我來說最大的驚喜之一，就是這種變化的速度」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=46s" target="_blank" rel="noopener noreferrer">00:46</a>）。「4 年前，我們的模型連小學數學都解不出來，而現在它們正在攻克我們所知最難的、尚未被證明的數學問題」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=57s" target="_blank" rel="noopener noreferrer">00:57</a>），而過去大概 6 個月，即使放在這四年裡看，也像是非常加速的版本。</p>
+<p>他說 GPT-6 是模型「一口氣跨出了一大步」的時刻之一（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=72s" target="_blank" rel="noopener noreferrer">01:12</a>），一方面是模型能發現新知識、處理很難的事，另一方面是人們跟模型協作、完成大量實質工作的速度變快了。他的結論是：「所以，GPT-6 的採用是我們所有新模型中迄今最強勁的，遙遙領先」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=92s" target="_blank" rel="noopener noreferrer">01:32</a>）。OpenAI 沒有公布 GPT-6 專屬的採用數字可以對照，這句只能當執行長的評價讀。</p>
+<h2 id="sec-5">二、Oracle 內部：70% 與 13 萬人</h2>
+<p>接下來 Magouyrk 講自家。「在 Oracle 內部，我們顯然是 OpenAI 的重度使用者」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=110s" target="_blank" rel="noopener noreferrer">01:50</a>），「我們決定把 ChatGPT 桌面版推行給所有人」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=117s" target="_blank" rel="noopener noreferrer">01:57</a>）。然後是整段最具體的數字：「我們絕大多數的程式碼，如今超過 70% 的軟體都是由 AI 寫的，而且這還在加速」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=127s" target="_blank" rel="noopener noreferrer">02:07</a>）。</p>
+<p><strong>這個 70% 只有台上一句。</strong>台上沒說怎麼算，Oracle 的新聞稿與合作頁也沒有這個數字。</p>
+<p>書面上找得到的是另一組數字。OpenAI 10 月 8 日的客戶案例寫，Oracle 有 13 萬名 ChatGPT 活躍使用者、超過 9.5 萬名 Codex 活躍使用者，從人才招募、Oracle Applications Lab 到 IT 部門已有超過十萬名員工在用（<a href="https://openai.com/index/oracle/" target="_blank" rel="noopener noreferrer">OpenAI 客戶案例</a>）；10 月 27 日的合作公告重述這兩個數字，並注明由 Oracle 提供（<a href="https://openai.com/index/oracle-apps-in-chatgpt/" target="_blank" rel="noopener noreferrer">OpenAI</a>）。案例裡最醒目的例子是招募團隊：原本要花 2 至 4 天彙整的市場研究，現在準備約 15 到 20 分鐘。</p>
+<aside class="note"><p>注意：13 萬與 9.5 萬是「活躍使用者」，不等於全員都裝了桌面版，也不是 70% 的佐證。三個數字量的是不同的東西。</p></aside>
+<h2 id="sec-6">三、不寫程式的人也在做 app</h2>
+<p>Magouyrk 接著說，讓他驚訝的不只是 Codex，還有「誰算是開發者」這件事在改變。他去交談過的許多人，「幾年前他們根本無法想像自己會成為開發者」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=138s" target="_blank" rel="noopener noreferrer">02:18</a>），現在卻在做全新的應用程式。他把這連到自家產品：「這也是我們專注於打造 App Composer 的很大一部分原因」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=156s" target="_blank" rel="noopener noreferrer">02:36</a>），因為這麼多人在做新的 app，「我們需要一種安全且受控的方式來實際部署它們」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=160s" target="_blank" rel="noopener noreferrer">02:40</a>）。</p>
+<p>奧特曼的回答幾乎是同一個觀察。企業全面推行之後，那些不認為自己在創造軟體的人，「這種情況在整家公司裡擴散得有多快」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=206s" target="_blank" rel="noopener noreferrer">03:26</a>）。「所以你會看到這些人，他們可能不會將其描述為寫程式」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=210s" target="_blank" rel="noopener noreferrer">03:30</a>），但現在需要什麼，就自己做一個 app。他轉述常聽到的說法：生產力是 2025 年初的兩倍，也更享受工作，因為苦差事變少了。</p>
+<p>兩人接著各講自己的經驗。Magouyrk 說他曾經算是個軟體開發者，當初讓他著迷的是「我能有一個想法，而且我能把它變成現實」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=272s" target="_blank" rel="noopener noreferrer">04:32</a>），可是這種創造性跟怎麼向電腦下指令，是分開的兩件事；AI 把手動的部分自動化，替原本不往這方面走的人解鎖了創造力。奧特曼說「我強烈同意這一點」，也補了另一半：對本來就更傾向這方面的人，「它只是給你多得多的能力」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=307s" target="_blank" rel="noopener noreferrer">05:07</a>）。</p>
+<p>他的自我描述是整段最有畫面的一句：「我現在坐在電腦前使用最新工具的主觀體驗，就像是我在自己的電腦裡管理一座工廠」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=314s" target="_blank" rel="noopener noreferrer">05:14</a>）。以前只有模糊感覺、「平時我大概就會放棄」的點子（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=341s" target="_blank" rel="noopener noreferrer">05:41</a>），現在因為啟動門檻變低，「我願意去探索這些不太可能、但有時回報很大的創意方向」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=347s" target="_blank" rel="noopener noreferrer">05:47</a>）。</p>
+<p>這一段的兩個說法放在一起看，才看得出 Oracle 的產品邏輯：人人都能做 app 之後，接著的問題是這些 app 誰來管。奧特曼談的是個人：誰都能把想法變成 app。Magouyrk 談的是企業的下一步：這麼多 app 要有地方安全地跑。Oracle 對 App Composer 的書面描述，重點也在後者：連到經核准的 Oracle 資料與流程，並套用企業的身分、權限、網路、稽核與應用程式生命週期控管（<a href="https://www.oracle.com/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/" target="_blank" rel="noopener noreferrer">Oracle 新聞稿</a>）。Oracle 部落格寫，App Composer 目前是限量供應（Limited Availability）（<a href="https://blogs.oracle.com/cloud-infrastructure/announcing-oracle-app-composer" target="_blank" rel="noopener noreferrer">Oracle 部落格</a>）。</p>
+<h2 id="sec-7">四、資安：如果只能做一件事</h2>
+<p>「好吧，聽著，我們有時間限制，山姆」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=387s" target="_blank" rel="noopener noreferrer">06:27</a>），Magouyrk 把話題轉到資安。他說 OpenAI 的模型「顯然既能發現漏洞，又能幫助我們修復它們」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=395s" target="_blank" rel="noopener noreferrer">06:35</a>），這也是兩家一起做 AI Security Mesh 的原因：客戶拿得到模型，卻不知道怎麼用、怎麼對準目標、怎麼驗證找到的問題、怎麼部署。他問：「企業應該如何思考採用 AI 來保護自己及其資料？」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=420s" target="_blank" rel="noopener noreferrer">07:00</a>）</p>
+<p>奧特曼的回答是整場最明確的建議。「如果我現在只能向一家公司推薦一件用 AI 做的事，而且是在極短期內」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=427s" target="_blank" rel="noopener noreferrer">07:07</a>），「那甚至比用 Codex 變得超級有生產力更重要，就是真正理解來自 AI 的資安威脅態勢，並對此做防範」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=434s" target="_blank" rel="noopener noreferrer">07:14</a>）。他自己也察覺這話聽起來的味道：「我明白我這麼說大概有點煩人」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=445s" target="_blank" rel="noopener noreferrer">07:25</a>），好像在說你們製造了問題，現在卻要大家花錢解決。</p>
+<p>Magouyrk 在這裡打斷他：「抱歉打斷一下」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=457s" target="_blank" rel="noopener noreferrer">07:37</a>），「AI 並沒有製造這些程式錯誤」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=460s" target="_blank" rel="noopener noreferrer">07:40</a>），「AI 正在幫助我們找出過去 50 年來我們自己累積下來的所有資安問題」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=461s" target="_blank" rel="noopener noreferrer">07:41</a>），他慶幸現在能用 AI 找到，而不是等不知名的駭客來通知。</p>
+<aside class="note"><p>注意：「AI 並沒有製造問題」是 Magouyrk 替奧特曼說的話，不是奧特曼自己的結論。奧特曼原本的說法是「理解來自 AI 的資安威脅」，指的是 AI 帶來的威脅本身。</p></aside>
+<p>奧特曼回「超級強烈同意」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=474s" target="_blank" rel="noopener noreferrer">07:54</a>），接著說的比單純附和多一層。「我認為度過這個難關的唯一方法就是去找出所有這些問題並修復它們」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=475s" target="_blank" rel="noopener noreferrer">07:55</a>），但「在我們大家都依賴的整個供應鏈中，要逐一修補每一個錯誤也許太難了」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=481s" target="_blank" rel="noopener noreferrer">08:01</a>），所以要看新型的服務，「持續監控流量，不讓這些東西被利用」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=489s" target="_blank" rel="noopener noreferrer">08:09</a>）。他說自己對 AI 系統找到的漏洞數量之多「感到震驚」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=498s" target="_blank" rel="noopener noreferrer">08:18</a>），要走在前面需要「令人難以置信、艱鉅無比的努力」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=504s" target="_blank" rel="noopener noreferrer">08:24</a>）。</p>
+<p>比起 Magouyrk 說的 AI 在幫忙找出舊問題，奧特曼這段話更不樂觀。</p>
+<p>書面背景可以補上兩件事。OpenAI 9 月 3 日的安全概覽寫，GPT‑6 Astra 是它第一個在應變整備框架的網路安全能力達到「關鍵」等級的模型，具備適當工具與存取權限時，能在許多防護嚴密的系統中找出過去未知的漏洞（<a href="https://openai.com/index/safety-overview-gpt-6-astra/" target="_blank" rel="noopener noreferrer">OpenAI</a>）。Oracle 對 AI Security Mesh 的描述則強調範圍：由客戶界定哪裡可以測試、控制測試範圍，Oracle 管理防護措施，降低測試時造成中斷的風險（<a href="https://www.oracle.com/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/" target="_blank" rel="noopener noreferrer">Oracle 新聞稿</a>）。</p>
+<h2 id="sec-8">五、Jalapeño：「正在部署」與「計畫部署」</h2>
+<p>最後一個問題是接下來最期待什麼。奧特曼說：「其中一件我忍不住要談的是，AI 現在有多大程度在幫我們發現新科學、發明新技術」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=539s" target="_blank" rel="noopener noreferrer">08:59</a>）。他的例子是晶片：「AI 非常擅長晶片設計」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=568s" target="_blank" rel="noopener noreferrer">09:28</a>），「事實上，我們做了一款叫 Jalapeño 的晶片，正在 OCI 上部署，我們對此非常興奮」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=570s" target="_blank" rel="noopener noreferrer">09:30</a>）。他說「我認為它是世界上最好的推論用 AI 晶片」，而且若沒有 AI 承擔大量這類工作，做出來的速度是無法想像的（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=577s" target="_blank" rel="noopener noreferrer">09:37</a>）。</p>
+<p>OpenAI 6 月 24 日與博通（Broadcom）發表 Jalapeño，是 OpenAI 的「首款智慧處理器」（公告用語）；公告寫早期測試顯示每瓦效能「將大幅優於目前最先進水準」，但仍在測量最終效能，並「預計於 2026 年底前啟動初期部署」（<a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/" target="_blank" rel="noopener noreferrer">OpenAI</a>）。公告也寫，在 OpenAI 模型加速下，從初始設計到完成流片僅用九個月，與奧特曼說的速度相符，但都是 OpenAI 自己的說法。</p>
+<p>Oracle 那邊的寫法比台上保守。Oracle 雲端基礎設施（OCI）產品資深副總裁 Karan Batta 當天的文章寫：「We plan to deploy OpenAI’s Jalapeño inference accelerators, developed with Broadcom, to expand efficient inference capacity for OpenAI.」（<a href="https://www.oracle.com/news/announcement/blog/ai-world-building-the-next-decade-of-oracle-cloud-infrastructure-2026-10-27/" target="_blank" rel="noopener noreferrer">Oracle</a>）</p>
+<aside class="note"><p>注意：Jalapeño 是用來替 OpenAI 擴充推論容量，書面上沒有說 OCI 客戶可以租用；「世界上最好」是奧特曼的自評。</p></aside>
+<p>奧特曼把這些串成一條線：短短幾年，AI 從聊天機器人，到寫程式的代理（coding agent），「再到能夠直接將 AI 轉化為創新」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=591s" target="_blank" rel="noopener noreferrer">09:51</a>），「也就是把 AI 運算能力轉化為創新」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=599s" target="_blank" rel="noopener noreferrer">09:59</a>）。無論是做晶片還是治癒疾病，結果是更好的東西、更高品質也更低成本的服務。他最後說，大家在理智上知道並接受這件事正在發生，「在情感上卻還沒有真正感受到，而這些模型突然之間就出現在這裡了」（<a href="https://www.youtube.com/watch?v=SwoFsYmMvyA&amp;t=613s" target="_blank" rel="noopener noreferrer">10:13</a>）。Magouyrk 回「不，我完全同意」，道謝後結束。</p>
+<h2 id="sec-9">台上沒講完的那份新聞稿</h2>
+<p>台上點名的只有 App Composer 與 AI Security Mesh。同一天的 Oracle 新聞稿與 OpenAI 公告，一共列了四項產品，外加一條採購管道：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格（可左右捲動）"><table><thead><tr><th scope="col">產品</th><th scope="col">做什麼</th><th scope="col">書面上的狀態</th></tr></thead><tbody><tr><td data-label="產品">Oracle AI Workspace</td><td data-label="做什麼">在 ChatGPT 裡連接 Oracle Fusion Applications、NetSuite、Oracle AI Database、OCI 等系統，查資料、跑經核准的流程</td><td data-label="書面上的狀態">OpenAI 寫 Oracle「正在開發」；產品頁開放登記即將推出的限量供應</td></tr><tr><td data-label="產品">Oracle App Composer</td><td data-label="做什麼">用 Codex 等工具做 app，由 Oracle 在 OCI 上部署與營運，套用企業權限與稽核</td><td data-label="書面上的狀態">限量供應（截至 10 月 27 日）</td></tr><tr><td data-label="產品">Oracle AI Security Mesh</td><td data-label="做什麼">用 OpenAI 資安模型找漏洞、驗證、排定修補優先順序的託管服務</td><td data-label="書面上的狀態">已宣布；產品頁未寫上市日期</td></tr><tr><td data-label="產品">Oracle AI SMB Bundle</td><td data-label="做什麼">ChatGPT Business、Codex、NetSuite QuickStart 等，每年 12,000 美元 OCI 額度</td><td data-label="書面上的狀態">限量開放申請、逐案審核，限美國的私有營利獨立企業</td></tr><tr><td data-label="產品">Oracle Marketplace 採購</td><td data-label="做什麼">美國的 Oracle 客戶可用符合資格的 Oracle Universal Credits 購買 OpenAI API、Codex、ChatGPT Work</td><td data-label="書面上的狀態">OpenAI 公告列出此採購管道；上市時間未查證</td></tr></tbody></table></div>
+<p>來源：<a href="https://www.oracle.com/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/" target="_blank" rel="noopener noreferrer">Oracle 新聞稿</a>、<a href="https://www.oracle.com/artificial-intelligence/oracle-openai/" target="_blank" rel="noopener noreferrer">Oracle 合作頁</a>、<a href="https://openai.com/index/oracle-apps-in-chatgpt/" target="_blank" rel="noopener noreferrer">OpenAI 公告</a>、<a href="https://blogs.oracle.com/cloud-infrastructure/announcing-oracle-app-composer" target="_blank" rel="noopener noreferrer">App Composer 公告</a>。</p>
+<p>Oracle 新聞稿附有一般的未來產品聲明：所述內容是產品方向，不是交付承諾，推出時間與價格可能變動。<strong>四項產品裡，書面上寫明已經進入限量供應的，只有 App Composer 與 SMB Bundle（後者要申請、逐案審核）；AI Workspace 還在登記候補，Security Mesh 沒寫上市日期。</strong></p>
+<h2 id="sec-10">讀這段影片要記得的限制</h2>
+<ul><li>這是兩家合作夥伴在發表會上的對談，不是訪問。兩人互相附和，沒有追問。</li><li>影片是 CNBC 的節錄。整場主題演講在 Oracle 的 On Air 平台可隨選觀看，需要 Oracle 帳號（<a href="https://www.oracle.com/ai-world/" target="_blank" rel="noopener noreferrer">Oracle AI World</a>）。</li><li>字幕是 YouTube 自動產生的，沒有說話者標記。本文的說話者依字幕的換人記號與上下文判斷，少數短句歸屬與指涉不明，不引用。</li></ul>
+<h2 id="sec-11">重點結論與實際啟示</h2>
+<p>這十分鐘的數字不多，比較值得看的是兩位執行長各自想強調什麼：奧特曼講速度與個人，Magouyrk 講企業。兩家的書面公告把 Magouyrk 那一半做成了 App Composer 與 AI Security Mesh，另外兩項則是把 ChatGPT 接進 Oracle 系統、包成中小企業套裝。</p>
+<p>讀完可以帶走三件事：</p>
+<ul><li><strong>發表會上的日期與動詞，要回到書面核對。</strong>「8 月推出」對到官方是 9 月，「正在部署」對到 Oracle 是「計畫部署」。差距不大，但寫進報告或投資判斷時就不一樣。</li><li>像 70% 這種比例，先問分母與算法。</li><li>奧特曼把資安排在生產力之前。<strong>導入 coding agent 的同時，先弄清楚 AI 帶來了哪些資安威脅</strong>，比再多一個提升效率的工具重要。</li></ul>
+<p>放到台灣的情境（本文類推）：</p>
+<ul><li>讓非工程師自己做 app，最先卡住的通常是權限、稽核與資料存取，而不是工具。App Composer 把這件事做成產品，也提醒自建內部平台的企業，治理要跟工具一起規劃。</li><li>奧特曼認為逐一修補供應鏈也許太難。對長期仰賴開源元件與外包系統的企業，這可能表示監控與應變的預算要跟修補一起編列。</li><li>SMB Bundle 與 Marketplace 採購目前都限美國，台灣企業短期內用不到，能參考的是它的組合方式。</li></ul>
+<h2 id="sec-12">製作說明：這篇導讀由 AI 模型完成</h2>
+<ul><li>分析與撰稿由 AI 模型完成，不是人類分析，也沒有經過人工逐句校稿。主控、正文撰寫與字幕統一審查為 Claude Opus 5.5；字幕初譯由 Gemini 3.8 Flash（經 agy）完成，逐句修詞為 Claude Sonnet 5.5；審稿由獨立的 Claude 模型進行，型號無紀錄；本輪的修正與潤稿由 Claude Sonnet 5.5 完成；重要說法的查證使用 Claude、OpenAI Codex 與 Gemini（經 agy）三路。封面插畫由 OpenAI Codex 以 codex exec 呼叫 image generation 製作，圖內沒有文字；合作結構圖是 AI 撰寫腳本繪製的 SVG，內容是本文歸納，不是講者原圖。</li><li>查證原則：重要說法須有兩方以上的查證，並對到官方或第一手來源；只有單方者降級標示。</li><li>引言依據 YouTube 自動產生的英文字幕翻成中文，經 AI 審校，是機器翻譯，不是官方譯文，也沒有逐句對照原音；字幕沒有說話者標記，歸屬依換人記號與上下文判斷。個別字句以影片為準。OpenAI 頁面引述採其繁體中文版。</li><li>本導讀另附<a href="translation-zh.html">全文繁中譯文</a>與<a href="player.html">雙語同步播放器</a>，都是機器翻譯，非官方版本；影片版權屬原頻道 CNBC Television。</li></ul>
+<h2 id="sec-13">來源清單</h2>
+<p><strong>影片</strong></p>
+<ul class="sources"><li><a href="https://www.youtube.com/watch?v=SwoFsYmMvyA" target="_blank" rel="noopener noreferrer">Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk</a>，CNBC Television（YouTube），2026-10-27。</li></ul>
+<p><strong>Oracle 官方</strong></p>
+<ul class="sources"><li><a href="https://www.oracle.com/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/" target="_blank" rel="noopener noreferrer">Oracle Reinvents Enterprise Computing for the AI Era with OpenAI</a>，Oracle 新聞稿，2026-10-27。</li><li><a href="https://www.oracle.com/artificial-intelligence/oracle-openai/" target="_blank" rel="noopener noreferrer">Oracle and OpenAI</a>，Oracle 合作頁，頁面未標日期。</li><li><a href="https://blogs.oracle.com/cloud-infrastructure/announcing-oracle-app-composer" target="_blank" rel="noopener noreferrer">Announcing Oracle App Composer</a>，Oracle 部落格，2026-10-27。</li><li><a href="https://www.oracle.com/news/announcement/blog/ai-world-building-the-next-decade-of-oracle-cloud-infrastructure-2026-10-27/" target="_blank" rel="noopener noreferrer">Building the Next Decade of Oracle Cloud Infrastructure</a>，Karan Batta，Oracle，2026-10-27。</li><li><a href="https://www.oracle.com/artificial-intelligence/workspace/" target="_blank" rel="noopener noreferrer">Oracle AI Workspace</a>、<a href="https://www.oracle.com/artificial-intelligence/security-mesh/" target="_blank" rel="noopener noreferrer">Oracle AI Security Mesh</a>、<a href="https://www.oracle.com/artificial-intelligence/smb-bundle/" target="_blank" rel="noopener noreferrer">Oracle AI SMB Bundle</a>，Oracle 產品頁，頁面未標日期。</li><li><a href="https://www.oracle.com/ai-world/" target="_blank" rel="noopener noreferrer">Oracle AI World 2026</a>，活動頁（含主題演講隨選與照片說明），頁面未標日期。</li><li><a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Investor-Day-2026-Accelerating-Value-Creation/default.aspx" target="_blank" rel="noopener noreferrer">Oracle Investor Day 2026: Accelerating Value Creation</a>，Oracle 投資人關係，2026-10-28。</li></ul>
+<p><strong>OpenAI 官方</strong></p>
+<ul class="sources"><li><a href="https://openai.com/index/oracle-apps-in-chatgpt/" target="_blank" rel="noopener noreferrer">OpenAI expands partnership with Oracle to bring its apps to ChatGPT</a>，OpenAI，2026-10-27。</li><li><a href="https://openai.com/index/oracle/" target="_blank" rel="noopener noreferrer">Oracle 如何運用 ChatGPT 與 Codex，將數天的工作縮短至幾分鐘</a>，OpenAI 客戶案例，2026-10-08。</li><li><a href="https://openai.com/index/safety-overview-gpt-6-astra/" target="_blank" rel="noopener noreferrer">安全概覽：GPT-6 Astra</a>，OpenAI，2026-09-03。</li><li><a href="https://openai.com/index/gpt-6-astra/" target="_blank" rel="noopener noreferrer">GPT-6 Astra：新一代智慧</a>，OpenAI，2026-09-03（9 月 22 日、29 日更新）。</li><li><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/" target="_blank" rel="noopener noreferrer">OpenAI 與博通發表專為 LLM 打造的推論晶片</a>，OpenAI，2026-06-24。</li><li><a href="https://openai.com/index/chatgpt/" target="_blank" rel="noopener noreferrer">Introducing ChatGPT</a>，OpenAI，2022-11-30。</li></ul>
 </article></main>
 <footer>
-<p>本頁為非官方導讀。研究、翻譯、整理與撰寫由 AI 模型完成，未經人工逐句校稿；內容僅供學習與研究，若有出入請以原影片與官方文件為準。</p>
+<p>本頁為對 YouTube 影片〈Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk〉的非官方導讀，原影片版權屬原頻道 CNBC Television。本導讀的研究、翻譯、寫作、查證、審稿與插圖皆由 AI 模型完成，並非人類分析，未經人工逐句校稿（分工見文末〈製作說明〉）。內容資料截至 2026-10-31。</p>
+<p>另見：<a href="translation-zh.html">全文繁中譯文</a>、<a href="player.html">雙語同步播放器</a>。</p>
 </footer>
 </div>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="圖片放大檢視"><button type="button" aria-label="關閉放大檢視">關閉（Esc）</button><img src="" alt=""></div>
@@ -187,6 +264,52 @@ footer{max-width:720px;margin:64px auto 0;padding-top:16px;border-top:1px solid 
     if(e.key==='Escape'){close();}
     if(e.key==='Tab'){e.preventDefault();btn.focus();}
   });
+})();
+
+(function(){
+  var d=document, reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=d.createElement('div');bar.className='read-progress';bar.setAttribute('aria-hidden','true');d.body.appendChild(bar);
+  var top=d.createElement('button');top.className='to-top';top.type='button';top.setAttribute('aria-label','回到頂端');top.textContent='↑';d.body.appendChild(top);
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
+  var lastY=0;
+  function onScroll(){
+    var h=d.documentElement.scrollHeight-window.innerHeight, y=window.scrollY||0;
+    bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    var up=y<lastY;lastY=y;top.classList.toggle('show',y>900&&(up||window.innerWidth>640));
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // 狀態欄標籤：依文字開頭分色（不改文字內容）
+  d.querySelectorAll('table').forEach(function(t){
+    var ths=[].slice.call(t.querySelectorAll('thead th'));
+    var i=ths.findIndex(function(th){return th.textContent.trim()==='狀態';});
+    if(i<0)return;
+    t.querySelectorAll('tbody tr').forEach(function(tr){
+      var td=tr.children[i];if(!td)return;
+      var tx=td.textContent.trim(), cls='';
+      if(/與書面不符|有爭議|未找到|未解|不一致|被推翻/.test(tx))cls='warn';else if(/部分確認|用詞比書面更進一步|僅台上說法|畫面所見|官方未|啟用方式已變|個人判斷|轉述|限量/.test(tx))cls='part';else if(/已確認/.test(tx))cls='ok';
+      td.innerHTML='<span class="badge '+cls+'"'+(tx.length<=8?' style="white-space:nowrap"':'')+'>'+td.innerHTML+'</span>';
+    });
+  });
+  // 導覽當前章
+  var links={};d.querySelectorAll('nav.toc a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var heads=[].slice.call(d.querySelectorAll('h2[id]')).filter(function(h){return links[h.id];});
+  function cur(){
+    var y=window.scrollY+window.innerHeight*0.35, pick=null;
+    heads.forEach(function(h){if(h.getBoundingClientRect().top+window.scrollY<=y)pick=h.id;});
+    Object.keys(links).forEach(function(k){if(k===pick){links[k].setAttribute('aria-current','true');}else{links[k].removeAttribute('aria-current');}});
+    if(pick&&links[pick]){var a=links[pick],u=a.closest('ul'),ar=a.getBoundingClientRect(),ur=u.getBoundingClientRect();u.scrollTo({left:u.scrollLeft+(ar.left-ur.left)-(ur.width-ar.width)/2,behavior:reduce?'auto':'smooth'});}
+  }
+  window.addEventListener('scroll',cur,{passive:true});cur();
+  // 章節與圖進場；JS 失效時內容照常顯示
+  if(!reduce&&'IntersectionObserver' in window){
+    d.documentElement.classList.add('js-reveal');
+    var els=d.querySelectorAll('h2, figure, .summary-card, table');
+    els.forEach(function(e){e.classList.add('rv');if(e.tagName==='FIGURE'&&e.querySelector('img[src*="fig-trace"]'))e.classList.add('rv-trace');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('rv-in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  }
+  var hp=d.querySelector('.hero-figure picture');
+  if(hp&&!reduce){window.addEventListener('scroll',function(){var y=window.scrollY;if(y<900){hp.style.transform='translateY('+Math.round(y*0.12)+'px)';}},{passive:true});}
 })();
 </script>
 </body>
